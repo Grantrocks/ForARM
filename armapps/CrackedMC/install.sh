@@ -9,12 +9,10 @@ fi
 mkdir Cracked-Minecraft
 cd Cracked-Minecraft
 if [ "$MACHINE" = "aarch64" ]; then
-    echo "OS is (64 bit)"
     if [ ! -d ~/lwjgl3arm64 ]; then
         mkdir ~/lwjgl3arm64
     fi
 else
-    echo "OS is (32 bit)"
     if [ ! -d ~/lwjgl3arm32 ]; then
         mkdir ~/lwjgl3arm32
     fi
@@ -43,7 +41,6 @@ else
         wget https://github.com/mikehooper/Minecraft/raw/main/lwjgl2arm32.tar.gz
     fi
 fi
-echo Extracting java ...
 if [ "$MACHINE" = "aarch64" ]; then
     sudo tar -zxf jdk-8u251-linux-arm64-vfp-hflt.tar.gz -C /opt/jdk
     # install opnjdk for launcher.jar and optifine install
@@ -51,22 +48,18 @@ if [ "$MACHINE" = "aarch64" ]; then
 else
     sudo tar -zxf jdk-8u251-linux-arm32-vfp-hflt.tar.gz -C /opt/jdk
 fi
-echo Extracting lwjgl...
 if [ "$MACHINE" = "aarch64" ]; then
     tar -zxf lwjgl3arm64.tar.gz -C ~/lwjgl3arm64
 else
     tar -zxf lwjgl3arm32.tar.gz -C ~/lwjgl3arm32
     tar -zxf lwjgl2arm32.tar.gz -C ~/lwjgl2arm32
 fi
-echo Configure java
 sudo update-alternatives --install /usr/bin/java java /opt/jdk/jdk1.8.0_251/bin/java 0
 sudo update-alternatives --install /usr/bin/javac javac /opt/jdk/jdk1.8.0_251/bin/javac 0
 if [ "$MACHINE" = "aarch64" ]; then
-    echo Setting Open jdk
     sudo update-alternatives --set java /usr/lib/jvm/java-11-openjdk-arm64/bin/java
     sudo update-alternatives --set javac /usr/lib/jvm/java-11-openjdk-arm64/bin/javac
 else
-    echo Setting Oracle jdk
     sudo update-alternatives --set java /opt/jdk/jdk1.8.0_251/bin/java
     sudo update-alternatives --set javac /opt/jdk/jdk1.8.0_251/bin/javac
 fi
@@ -82,6 +75,4 @@ Categories=Games;
 StartupNotify=true" > ~/.local/share/applications/cracked-minecraft.desktop
 wget https://onedrive.live.com/download?cid=7BEF2F746D350F5E&resid=7BEF2F746D350F5E%214529&authkey=ANu-NbknMtQ76UM
 wget https://www.freepnglogos.com/download/1022
-echo "Please view the instructions.txt file for information on how to run minecraft on your arm or arrch computer."
 mv /home/$USER/ForARM/armapps/CrackedMC/instructions.txt /home/$USER/Cracked-Minecraft/instructions.txt
-echo "Installed Cracked Minecraft"
