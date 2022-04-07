@@ -22,7 +22,8 @@ def games():
     os.system("clear")
     print("Installing Cracked Minecraft")
     os.system("chmod a+x /home/$USER/ForARM/armapps/CrackedMC/install.sh")
-    os.system("./home/$USER/ForARM/armapps/CrackedMC/install.sh")
+    os.system("cd /home/$USER/ForARM/armapps/CrackedMC")
+    os.system("./install.sh")
 def main():
   print("""
         Find amazing apps and install them in 1 click.
