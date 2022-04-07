@@ -1,0 +1,3 @@
+In order to run minecraft you need to edit a few lines inside the launcher.
+Once you login, go to your profile and click edit.
+Select a version higher than 1.14.4 or else this wont work at all.
